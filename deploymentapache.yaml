@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apachewww
+  labels:
+    app: apachewww
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apachewww
+  template:
+    metadata:
+      labels:
+        app: apachewww
+    spec:
+      containers:
+      - name: apachewww
+        image: ubuntu-apache-ssh:v1
+        ports:
+        - containerPort: 80
